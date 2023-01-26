@@ -1,6 +1,6 @@
 import request from "/js/lib/request.js";
 
-const checkInput = async (inputId, reg, callback) => {
+const checkInput = async (inputId, reg) => {
   document
     .querySelector(`#${inputId}Box`)
     .addEventListener("keyup", async () => {
@@ -12,7 +12,7 @@ const checkInput = async (inputId, reg, callback) => {
       } else {
         error.style.opacity = 0;
         error.style.transition = "opacity 0.2s ease-in-out";
-        if (callback) callback(inputId);
+        callback(inputId);
       }
     });
 };
@@ -59,7 +59,7 @@ const config = {
 };
 
 for (const key in config) {
-  checkInput(key, config[key].reg, config[key].callback);
+  checkInput(key, config[key].reg);
 }
 
 // 패스워드 재확인
