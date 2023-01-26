@@ -1,6 +1,6 @@
 import request from "/js/lib/request.js";
 
-const checkInput = async (inputId, reg) => {
+const checkInput = async (inputId, reg, callback) => {
   document
     .querySelector(`#${inputId}Box`)
     .addEventListener("keyup", async () => {
@@ -59,7 +59,7 @@ const config = {
 };
 
 for (const key in config) {
-  checkInput(key, config[key].reg);
+  checkInput(key, config[key].reg, config[key].callback);
 }
 
 // 패스워드 재확인
