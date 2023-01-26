@@ -158,7 +158,7 @@ body {
 
 
 /* signup */
-#signupFrm {
+#signupFrm, #modifyFrm {
     max-width: 700px;
     width: 100%;
     background-color: #fff;

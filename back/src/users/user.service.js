@@ -54,7 +54,14 @@ class UserService {
         userpw: hash, 
         ...rest
       });
-      return user
+      if (user === 1) {
+        const token = this.jwt.createToken(userData)
+        return token
+      } else {
+        const error = new Error("수정 실패");
+        error.status = 401;
+        throw error;
+      }
     } catch (e) {
       throw new Error(e);
     }

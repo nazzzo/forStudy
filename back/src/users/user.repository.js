@@ -46,14 +46,19 @@ class UserRepository {
     console.log(`repo : `, userData);
     const user = await this.User.update(
       {
-        userData,
+        image: userData.image,
+        username: userData.username,
+        userpw: userData.userpw,
+        phoneNumber: userData.phoneNumber,
+        email: userData.email,
       },
       {
         where: { userid: userData.userid },
+        returning: true
       }
     );
-    console.log(`repo2 : `, user);
-    return user;
+    console.log(`repo2 : `, user[1])
+    return user[1];
   }
 }
 

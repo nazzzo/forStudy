@@ -8,16 +8,11 @@ router.post("/usercheck", (req, res, next) => controller.postUserCheck(req, res,
 router.get("/me", (req, res, next) => controller.getMe(req, res, next));
 router.put("/", (req, res, next) => controller.putProfile(req, res, next));
 
-// router.post("/single", (req, res, next) => controller.postSingle(req, res, next));
-// router.post("/array", (req, res, next) => controller.postArray(req, res, next));
-router.post("/single", upload.single("photoid"), (req, res) => {
-    console.log(req.file.path);
+router.post("/single", upload.single("filename"), (req, res) => {
     res.send(req.file);
   });
-
-router.post("/array", upload.array("photoid"), (req, res) => {
-    console.log("req.files :", req.files);
-    res.send("upload");
+router.post("/array", upload.array("filename"), (req, res) => {
+    res.send(req.files);
   });
 
 module.exports = router;

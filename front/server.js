@@ -17,7 +17,7 @@ nunjucks.configure("views", {
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("./public"));
+app.use(express.static("public"));
 
 app.use((req, res, next) => {
   // console.log(`req.cookies :`, req.cookies);
@@ -86,8 +86,10 @@ app.get("/modify", (req, res) => {
 
 
 app.post("/modify", async (req, res) => {
-  console.log("modify :", req.body)
-  await request.put("/users", {...req.body})
+  // console.log("modify :", req.body)
+  const response = await request.put("/users", {...req.body})
+  // console.log("response :", response.data.token)
+  res.cookie("token", response.data.token);
   await res.redirect("/profile")
 });
 

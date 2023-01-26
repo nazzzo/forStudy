@@ -1,8 +1,19 @@
 {% extends 'layout/layout.html' %} {% block content %}
 
-<form method="post" action="/modify" id="signupFrm">
+
+<form method="post" action="/single" id="photoFrm">
+  <p class="title">사진 등록</p>
+  <input type="file" name="filename">
+  <button type="submit">전송</button>
+</form>
+
+<form method="post" action="/modify" id="modifyFrm">
   <h2 id="bannerText">회원정보 수정</h2>
   <ul class="container">
+    <div id="imageBox">
+      <img id="previewImg" src="" alt="">
+      <input type="hidden" name="image" id="userImg">
+    </div>
     <li>
       <p class="title">아이디</p>
       <span><input type="text" name="userid" id="userid"  value="{{userid}}" readonly></span>

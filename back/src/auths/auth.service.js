@@ -7,7 +7,6 @@ class AuthService {
   }
   
   async token({ userid, userpw }) {
-    console.log(`serv :`, userid, userpw)
     try {
       if (!userid || !userpw) throw "사용자가 없습니다";
       const hash = this.crypto.createHmac("sha256", "web7722").update(userpw).digest("hex");
@@ -17,6 +16,7 @@ class AuthService {
       });
       if (!user) throw "아이디와 패스워드가 일치하지 않습니다";
 
+      console.log(`serv :`, user)
       const token = this.jwt.createToken(user)
       return token;
     } catch (e) {

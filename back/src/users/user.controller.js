@@ -11,7 +11,7 @@ class UserController {
     }
   }
   async postUserCheck(req, res, next) {
-    console.log(`con :`, req.body);
+    // console.log(`con :`, req.body);
     try {
       // const { userid } = req.body;
       const user = await this.userService.userCheck(req.body);
@@ -34,9 +34,10 @@ class UserController {
   }
   async putProfile(req, res, next) {
     try {
-      console.log(req.body)
-      const user = await this.userService.putProfile(req.body);
-      res.status(201).json(user);
+      const token = await this.userService.putProfile(req.body);
+      // console.log(token);
+      // res.cookie('token', token)
+      res.json({ token });
     } catch (e) { next(e); }
   }
 }
