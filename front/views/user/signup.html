@@ -10,6 +10,10 @@
 <form method="post" action="/signup" id="signupFrm">
     <h2 id="bannerText">회원가입</h2>
     <ul class="container">
+        <div id="imageBox">
+            <img id="previewImg" src="" alt="">
+            <input type="hidden" name="image" id="userImg">
+        </div>
         <li id="useridBox">
             <p class="title">아이디</p>
             <span><input type="text" name="userid" id="userid" placeholder="아이디를 입력해주세요"></span>
@@ -51,7 +55,7 @@
         </li>
         <li id="emailBox">
             <p class="title">이메일 주소</p>
-            <span><input type="email" name="email" id="email" required></span>
+            <span><input type="email" name="email" id="email" required  maxlength="30"></span>
             <p class="alertMessage" style="opacity: 0; color: red">이메일 형식에 맞게 입력해주세요</p>
         </li>
     </ul>

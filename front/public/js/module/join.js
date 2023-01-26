@@ -75,8 +75,7 @@ document.querySelector("#pwcheck").addEventListener("keyup", () => {
   }
 });
 
-// 이미지 등록
-console.log(document.querySelector("#photoFrm"));
+// 아바타 등록
 document.querySelector("#photoFrm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -86,5 +85,8 @@ document.querySelector("#photoFrm").addEventListener("submit", async (e) => {
       ["Content-Type"]: "multipart/form-data",
     },
   });
-  console.log(response);
+  document.querySelector('#userImg').value = response.data.filename;
+  document.querySelector('#previewImg').src = `http://127.0.0.1:3001/${response.data.filename}`;
+  console.log(document.querySelector('#userImg').value)
+  console.log(document.querySelector('#imageBox > img').src)
 });

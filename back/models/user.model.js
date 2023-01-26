@@ -46,6 +46,11 @@ module.exports = (sequelize, Sequelize) => {
               isEmail: true
             },
           },
+          image: {
+            type: Sequelize.STRING(200),
+            allowNull: false,
+            defaultValue: "",
+          },
           provider: {
             type: Sequelize.ENUM("local", "kakao"),
             allowNull: false,

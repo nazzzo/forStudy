@@ -11,9 +11,8 @@ router.put("/", (req, res, next) => controller.putProfile(req, res, next));
 // router.post("/single", (req, res, next) => controller.postSingle(req, res, next));
 // router.post("/array", (req, res, next) => controller.postArray(req, res, next));
 router.post("/single", upload.single("photoid"), (req, res) => {
-    console.log("Upload image")
-    console.log("req.file :", req.file);
-    res.send("upload");
+    console.log(req.file.path);
+    res.send(req.file);
   });
 
 router.post("/array", upload.array("photoid"), (req, res) => {
