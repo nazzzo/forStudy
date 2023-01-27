@@ -4,6 +4,6 @@ const config = require("./config");
 const PORT = config.port;
 
 app.listen(PORT, async () => {
-  await sequelize.sync({ force: false });
+  await sequelize.sync({ force: true });
   console.log(`backend server listening on port ${PORT}`);
 });
