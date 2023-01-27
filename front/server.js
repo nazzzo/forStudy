@@ -3,9 +3,11 @@ const app = express();
 const nunjucks = require("nunjucks");
 const cookieParser = require("cookie-parser");
 const axios = require("axios");
+const config = require("./config")
+console.log(config.BACK_HOST)
 
 const request = axios.create({
-  baseURL: "http://127.0.0.1:3000",
+  baseURL: `http://${config.BACK_HOST}:80`,
   withCredentials: true,
 });
 
@@ -96,7 +98,7 @@ app.post("/modify", async (req, res) => {
 
 
 
-app.listen(3005, () => {
-  console.log(`front server listening on 3005`);
+app.listen(config.PORT, () => {
+  console.log(`front server listening on ${config.PORT}`);
 });
 
