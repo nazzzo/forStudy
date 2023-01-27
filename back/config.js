@@ -6,7 +6,7 @@ const config = {
     BadRequest,
   },
   env: process.env.NODE_ENV || "development",
-  port: process.env.PORT || 3001,
+  port: process.env.PORT || 3000,
   db: {
     development: {
       username: process.env.DB_USER || "",
