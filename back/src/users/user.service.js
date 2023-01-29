@@ -50,12 +50,14 @@ class UserService {
         .createHmac("sha256", "web7722")
         .update(userpw)
         .digest("hex");
+        
       const user = await this.userRepository.updateProfile({
         userpw: hash, 
         ...rest
       });
       if (user === 1) {
-        const token = this.jwt.createToken(userData)
+        const modified = await this.userRepository.getUserById(userData.userid)
+        const token = this.jwt.createToken(modified)
         return token
       } else {
         const error = new Error("수정 실패");

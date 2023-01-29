@@ -86,7 +86,7 @@ document.querySelector("#photoFrm").addEventListener("submit", async (e) => {
     },
   });
   document.querySelector('#userImg').value = response.data.filename;
-  document.querySelector('#previewImg').src = `http://127.0.0.1:3001/${response.data.filename}`;
+  document.querySelector('#previewImg').src = `http://54.180.163.189:80/${response.data.filename}`;
   console.log(document.querySelector('#userImg').value)
   console.log(document.querySelector('#imageBox > img').src)
 });
